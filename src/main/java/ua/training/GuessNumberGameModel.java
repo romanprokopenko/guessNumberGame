@@ -25,11 +25,11 @@ public class GuessNumberGameModel {
         } else {
             int temp = secretNumber - checkedNumber;
             if (temp > 0) {
-                min = checkedNumber;
+                min = checkedNumber + 1;
                 return temp;
             }
             else {
-                max = checkedNumber;
+                max = checkedNumber - 1;
                 return temp;
             }
         }
