@@ -12,6 +12,7 @@ public class GuessNumberGameView {
     public static final String CANDIDATE_IS_BIGGER_MESSAGE = "your number is bigger than secret number";
     public static final String INPUT_IS_OUT_OF_RANGE_MESSAGE = "input is out of range";
     public static final String VICTORY_MESSAGE = "CONGRATULATIONS! YOU GUESSED RIGHT";
+    public static final String ATTEMPTS_MESSAGE = "attempts used: ";
 
     private static final String RANGE_MESSAGE = "Secret number is in range [ {0} , {1} ]";
 
