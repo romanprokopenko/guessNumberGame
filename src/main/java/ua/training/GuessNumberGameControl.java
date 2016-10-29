@@ -20,11 +20,13 @@ public class GuessNumberGameControl {
 
     public void startGame() {
         Scanner scan = new Scanner(INPUT);
-        int estimateNumber;
+        int attempts = 0;
+        int estimateNumber = 0;
         view.printMessage(GuessNumberGameView.START_GAME_MESSAGE);
         do {
             estimateNumber = inputIntValueWithScanner(scan);
             if ((model.getMin() <= estimateNumber) && (estimateNumber <= model.getMax())) {
+                attempts++;
                 int result = model.guessNumber(estimateNumber);
                 if (result > 0) {
                     view.printMessage(GuessNumberGameView.CANDIDATE_IS_SMALLER_MESSAGE);
@@ -37,6 +39,7 @@ public class GuessNumberGameControl {
             }
         } while (!model.checkCorrectness(estimateNumber));
         view.printMessage(GuessNumberGameView.VICTORY_MESSAGE);
+        view.printMessage(GuessNumberGameView.ATTEMPTS_MESSAGE + attempts);
     }
 
     public int inputIntValueWithScanner(Scanner sc) {
