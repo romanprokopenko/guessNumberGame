@@ -20,7 +20,7 @@ public class GuessNumberGameModel {
 
 
     public int guessNumber(int checkedNumber) {
-        if (checkCorrectness(checkedNumber)) {
+        if (isNumberEqualsSecret(checkedNumber)) {
             return 0;
         } else {
             int temp = secretNumber - checkedNumber;
@@ -49,7 +49,7 @@ public class GuessNumberGameModel {
     }
 
 
-    public boolean checkCorrectness(int checkedNumber) {
+    public boolean isNumberEqualsSecret(int checkedNumber) {
         return checkedNumber == secretNumber;
     }
 

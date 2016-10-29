@@ -37,7 +37,7 @@ public class GuessNumberGameControl {
             } else {
                 view.printMessage(GuessNumberGameView.INPUT_IS_OUT_OF_RANGE_MESSAGE);
             }
-        } while (!model.checkCorrectness(estimateNumber));
+        } while (!model.isNumberEqualsSecret(estimateNumber));
         view.printMessage(GuessNumberGameView.VICTORY_MESSAGE);
         view.printMessage(GuessNumberGameView.ATTEMPTS_MESSAGE + attempts);
     }
