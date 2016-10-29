@@ -5,9 +5,9 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 /**
- * Unit test for simple App.
+ * Unit test for simple GuessNumberGame.
  */
-public class AppTest 
+public class GuessNumberGameTest
     extends TestCase
 {
     /**
@@ -15,7 +15,7 @@ public class AppTest
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
+    public GuessNumberGameTest(String testName )
     {
         super( testName );
     }
@@ -25,11 +25,11 @@ public class AppTest
      */
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( GuessNumberGameTest.class );
     }
 
     /**
-     * Rigourous Test :-)
+     * Rigourous GuessNumberGameControl :-)
      */
     public void testApp()
     {
