@@ -11,7 +11,7 @@ public class GuessNumberGameModel {
 
     private int min = 0;
     private int max = 100;
-    private int secretNumber;
+    private final int secretNumber;
 
 
     public GuessNumberGameModel() {
@@ -20,20 +20,13 @@ public class GuessNumberGameModel {
 
 
     public int guessNumber(int checkedNumber) {
-        if (isNumberEqualsSecret(checkedNumber)) {
-            return 0;
-        } else {
-            int temp = secretNumber - checkedNumber;
-            if (temp > 0) {
-                min = checkedNumber + 1;
-                return temp;
-            }
-            else {
-                max = checkedNumber - 1;
-                return temp;
-            }
+        int temp = secretNumber - checkedNumber;
+        if (temp > 0) {
+            min = checkedNumber + 1;
+        } else if (temp < 0) {
+            max = checkedNumber - 1;
         }
-
+        return temp;
     }
 
 
