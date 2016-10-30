@@ -23,7 +23,7 @@ public class GuessNumberGameView {
 
 
     public void printMessageAndRange(String message, int lowerBorder, int biggerBorder) {
-        System.out.println(message+"."+formRange(lowerBorder, biggerBorder)); // Secret number is in range [" + lowerBorder + "," + biggerBorder + "]"
+        System.out.println(message+"."+formRange(lowerBorder, biggerBorder));
     }
 
 
@@ -31,7 +31,6 @@ public class GuessNumberGameView {
         String firstSequence = "{0}";
         String secondSequence = "{1}";
         return RANGE_MESSAGE.replace(firstSequence, lowerBorder.toString())
-                                    .replace(secondSequence, biggerBorder.toString());
-        //return resultString;
+                            .replace(secondSequence, biggerBorder.toString());
     }
 }

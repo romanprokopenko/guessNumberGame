@@ -30,8 +30,7 @@ public class GuessNumberGameControl {
                 int result = model.guessNumber(estimateNumber);
                 if (result > 0) {
                     view.printMessage(GuessNumberGameView.CANDIDATE_IS_SMALLER_MESSAGE);
-                }
-                if (result < 0) {
+                } else if (result < 0) {
                     view.printMessage(GuessNumberGameView.CANDIDATE_IS_BIGGER_MESSAGE);
                 }
             } else {
@@ -42,9 +41,9 @@ public class GuessNumberGameControl {
         view.printMessage(GuessNumberGameView.ATTEMPTS_MESSAGE + attempts);
     }
 
-    public int inputIntValueWithScanner(Scanner sc) {
+    private int inputIntValueWithScanner(Scanner sc) {
         view.printMessageAndRange(GuessNumberGameView.INPUT_NUMBER_MESSAGE, model.getMin(), model.getMax());
-        while( ! sc.hasNextInt()) {
+        while (!sc.hasNextInt()) {
             view.printMessage(GuessNumberGameView.WRONG_INPUT_MESSAGE + " " + GuessNumberGameView.INPUT_NUMBER_MESSAGE);
             sc.next();
         }
