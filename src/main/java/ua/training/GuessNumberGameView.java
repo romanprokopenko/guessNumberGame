@@ -50,6 +50,12 @@ public class GuessNumberGameView {
                 + RANGE_MESSAGE_THIRD_PART);
     }
 
+    /**
+     * Prints message plus number of tries and then otputs all valid tries
+     *
+     * @param message any string
+     * @param statistics ArrayList of tries
+     */
     public void printMessageAndStatistics(String message, ArrayList statistics) {
         System.out.println(message + statistics.size());
         System.out.println(STATISTICS_MESSAGE);
