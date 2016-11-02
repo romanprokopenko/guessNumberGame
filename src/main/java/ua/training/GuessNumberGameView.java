@@ -11,7 +11,7 @@ public class GuessNumberGameView {
 
     public static final String START_GAME_MESSAGE = "GREETINGS!";
     public static final String INPUT_NUMBER_MESSAGE = "Enter the number";
-    public static final String WRONG_INPUT_MESSAGE = "INVALID NUMBER";
+    public static final String WRONG_INPUT_MESSAGE = "INVALID NUMBER.";
     public static final String CANDIDATE_IS_SMALLER_MESSAGE = "your number is" +
             " smaller than secret number";
     public static final String CANDIDATE_IS_BIGGER_MESSAGE = "your number is" +
@@ -26,6 +26,12 @@ public class GuessNumberGameView {
     public static final String RANGE_MESSAGE_SECOND_PART = " , ";
     public static final String RANGE_MESSAGE_THIRD_PART = " ]";
     public static final String STATISTICS_MESSAGE = "moves made:";
+    public static final String ENTER_LESSER_BOUNDARY_MESSAGE = "please," +
+            " enter lesser boundary: ";
+    public static final String ENTER_BIGGER_BOUNDARY_MESSAGE = "please," +
+            " enter bigger boundary: ";
+    public static final String BOUNDARIES_ERROR_MESSAGE = "difference" +
+            " between bigger and lesser boundaries must be greater than 1";
 
 
     /**
@@ -41,11 +47,11 @@ public class GuessNumberGameView {
      * Prints combined message to System.out
      *
      * @param message      any string
-     * @param lowerBorder  lower range boundary
+     * @param lesserBorder  lesser range boundary
      * @param biggerBorder bigger range boundary
      */
-    public void printMessageAndRange(String message, int lowerBorder, int biggerBorder) {
-        System.out.println(message + RANGE_MESSAGE_FIRST_PART + lowerBorder
+    public void printMessageAndRange(String message, int lesserBorder, int biggerBorder) {
+        System.out.println(message + RANGE_MESSAGE_FIRST_PART + lesserBorder
                 + RANGE_MESSAGE_SECOND_PART + biggerBorder
                 + RANGE_MESSAGE_THIRD_PART);
     }

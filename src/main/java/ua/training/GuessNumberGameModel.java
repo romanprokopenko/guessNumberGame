@@ -25,14 +25,14 @@ public class GuessNumberGameModel {
      */
     private final int secretNumber;
 
-    //current lower boundary
+    //current lesser boundary
     private int min = 0;
 
     //current bigger boundary
     private int max = 100;
 
     /**
-     * Default constructor.
+     * Default constructor. Sets secretNumber between 0 and RAND_MAX
      */
     public GuessNumberGameModel() {
         secretNumber = getRandomNumber();
@@ -40,9 +40,9 @@ public class GuessNumberGameModel {
 
 
     /**
-     * Constructor that sets values of lower and bigger boundaries
+     * Constructor that sets values of lesser and bigger boundaries
      *
-     * @param min lower boundary
+     * @param min lesser boundary
      * @param max bigger boundary
      */
     public GuessNumberGameModel(int min, int max) {
@@ -57,14 +57,14 @@ public class GuessNumberGameModel {
      * @param checkedNumber number that needs to be checked
      * @return If checkedNumber is correct method returns 0, if bigger than
      * {@link GuessNumberGameModel#secretNumber} it returns
-     * integer lower than zero, if lower returns value bigger than zero
+     * integer lesser than zero, if lesser returns value bigger than zero
      */
     public int guessNumber(int checkedNumber) {
         int temp = getSecretNumber() - checkedNumber;
         if (temp > 0) {
-            min = checkedNumber + 1;
+            min = checkedNumber;
         } else if (temp < 0) {
-            max = checkedNumber - 1;
+            max = checkedNumber;
         }
         return temp;
     }
@@ -83,13 +83,23 @@ public class GuessNumberGameModel {
     /**
      * Returns random integer
      *
-     * @param min lower range boundary
+     * @param min lesser range boundary
      * @param max bigger range boundary
      * @return integer FROM min to max exclusive
      */
     public int getRandomNumber(int min, int max) {
         Random randomGenerator = new Random();
         return randomGenerator.nextInt((max - min) - 1) + min + 1;
+    }
+
+    /**
+     * Checks if number is in range
+     *
+     * @param number value to check
+     * @return result of checking
+     */
+    public boolean isInRange(int number) {
+        return (getMin() < number) && (number < getMax());
     }
 
     public boolean isNumberEqualsSecret(int checkedNumber) {
@@ -115,5 +125,6 @@ public class GuessNumberGameModel {
     public int getSecretNumber() {
         return secretNumber;
     }
+
 }
 

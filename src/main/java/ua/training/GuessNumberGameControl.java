@@ -19,7 +19,7 @@ public class GuessNumberGameControl {
     private GuessNumberGameModel model;
 
     /**
-     * Refererence to view part
+     * Reference to view part
      *
      * @see GuessNumberGameView
      */
@@ -42,12 +42,22 @@ public class GuessNumberGameControl {
     public void startGame() {
         Scanner scan = new Scanner(INPUT);
         int estimateNumber = 0;
+
         view.printMessage(GuessNumberGameView.START_GAME_MESSAGE);
+        initializeRange(scan);
+
+        /*this loop handles guessed numbers input and statistics gathering*/
         do {
+            view.printMessageAndRange(GuessNumberGameView.INPUT_NUMBER_MESSAGE,
+                    model.getMin(), model.getMax());
             estimateNumber = inputIntValueWithScanner(scan);
-            if (isInRange(estimateNumber)) {
-                model.addStatisticsData(estimateNumber);                                        //after all validations we could add input to statistics
+            if (model.isInRange(estimateNumber)) {
+
+                /*after all validations we could add input to statistics*/
+                model.addStatisticsData(estimateNumber);
                 int result = model.guessNumber(estimateNumber);
+
+                /*to output lesser/bigger message we have to check results of guessNumber(int)*/
                 if (result > 0) {
                     view.printMessage(GuessNumberGameView.CANDIDATE_IS_SMALLER_MESSAGE);
                 } else if (result < 0) {
@@ -58,7 +68,46 @@ public class GuessNumberGameControl {
             }
         } while (!model.isNumberEqualsSecret(estimateNumber));
         view.printMessage(GuessNumberGameView.VICTORY_MESSAGE);
-        view.printMessageAndStatistics(GuessNumberGameView.ATTEMPTS_MESSAGE, model.getStatistics());
+        view.printMessageAndStatistics(GuessNumberGameView.ATTEMPTS_MESSAGE, model.getStatistics());    //statistics output
+    }
+
+    /**
+     * Sets values of range boundaries using {@link GuessNumberGameControl#inputIntValueWithScanner}
+     * if values are entered incorrectly - repeats
+     *
+     * @param scan Scanner
+     */
+    private void initializeRange(Scanner scan) {
+        int min;
+        int max;
+
+        /*in this loop user have to input the secret number generation range*/
+        do {
+            view.printMessage(GuessNumberGameView.ENTER_LESSER_BOUNDARY_MESSAGE);
+            min = inputIntValueWithScanner(scan);
+            view.printMessage(GuessNumberGameView.ENTER_BIGGER_BOUNDARY_MESSAGE);
+            max = inputIntValueWithScanner(scan);
+        } while (!isLesser(min, max));
+
+        /*after boundaries input new model with same parameters is created*/
+        this.model = new GuessNumberGameModel(min, max);
+    }
+
+    /**
+     * Checks if max greater than min and their difference is greater than 1 . If so returns true else
+     * prints error message and returns false
+     *
+     * @param min lesser number
+     * @param max bigger number
+     * @return comparision result
+     */
+    public boolean isLesser(int min, int max) {
+        if ((max - min) > 1) {
+            return true;
+        } else {
+            view.printMessage(GuessNumberGameView.BOUNDARIES_ERROR_MESSAGE);
+            return false;
+        }
     }
 
     /**
@@ -68,23 +117,12 @@ public class GuessNumberGameControl {
      * @return integer value scanned from InputStream
      */
     public int inputIntValueWithScanner(Scanner sc) {
-        view.printMessageAndRange(GuessNumberGameView.INPUT_NUMBER_MESSAGE,
-                model.getMin(), model.getMax());
         while (!sc.hasNextInt()) {
             view.printMessage(GuessNumberGameView.WRONG_INPUT_MESSAGE
-                    + " " + GuessNumberGameView.INPUT_NUMBER_MESSAGE);
+                    + GuessNumberGameView.INPUT_NUMBER_MESSAGE);
             sc.next();
         }
         return sc.nextInt();
     }
 
-    /**
-     * Checks if number is in range
-     *
-     * @param number value to check
-     * @return result of checking
-     */
-    public boolean isInRange(int number) {
-        return (model.getMin() <= number) && (number <= model.getMax());
-    }
 }
