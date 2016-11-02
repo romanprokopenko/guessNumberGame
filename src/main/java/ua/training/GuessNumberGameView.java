@@ -51,9 +51,9 @@ public class GuessNumberGameView {
     }
 
     /**
-     * Prints message plus number of tries and then otputs all valid tries
+     * Prints message plus number of tries and then outputs all valid tries
      *
-     * @param message any string
+     * @param message    any string
      * @param statistics ArrayList of tries
      */
     public void printMessageAndStatistics(String message, ArrayList statistics) {

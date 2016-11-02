@@ -27,7 +27,7 @@ public class GuessNumberGameModelTest {
 
     @Test
     public void guessNumber() throws Exception {
-        final int ITERATIONS = GuessNumberGameModel.RAND_MAX    ;
+        final int ITERATIONS = GuessNumberGameModel.RAND_MAX;
 
         //fill list with int values from 0 to ITERATIONS
         ArrayList<Integer> input = new ArrayList<>();
@@ -51,10 +51,13 @@ public class GuessNumberGameModelTest {
 
     @Test
     public void getRandomNumber() throws Exception {
-        int min = -100;
-        int max = 100;
-        int result = model.getRandomNumber(min, max);
-        Assert.assertTrue((min <= result) && (result <= max));
+        int min = -10;
+        int max = 0;
+        int iterations = 10000;
+        for (int i = 0; i < iterations; i++) {
+            int result = model.getRandomNumber(min, max);
+            Assert.assertTrue((min < result) && (result < max));
+        }
     }
 
     @Test
@@ -64,5 +67,6 @@ public class GuessNumberGameModelTest {
         int max = 100;
         model.getRandomNumber(max, min);
     }
+
 
 }

@@ -45,8 +45,7 @@ public class GuessNumberGameControl {
         view.printMessage(GuessNumberGameView.START_GAME_MESSAGE);
         do {
             estimateNumber = inputIntValueWithScanner(scan);
-            if ((model.getMin() <= estimateNumber)
-                    && (estimateNumber <= model.getMax())) {
+            if (isInRange(estimateNumber)) {
                 model.addStatisticsData(estimateNumber);                                        //after all validations we could add input to statistics
                 int result = model.guessNumber(estimateNumber);
                 if (result > 0) {
@@ -77,5 +76,15 @@ public class GuessNumberGameControl {
             sc.next();
         }
         return sc.nextInt();
+    }
+
+    /**
+     * Checks if number is in range
+     *
+     * @param number value to check
+     * @return result of checking
+     */
+    public boolean isInRange(int number) {
+        return (model.getMin() <= number) && (number <= model.getMax());
     }
 }

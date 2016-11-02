@@ -38,6 +38,19 @@ public class GuessNumberGameModel {
         secretNumber = getRandomNumber();
     }
 
+
+    /**
+     * Constructor that sets values of lower and bigger boundaries
+     *
+     * @param min lower boundary
+     * @param max bigger boundary
+     */
+    public GuessNumberGameModel(int min, int max) {
+        this.min = min;
+        this.max = max;
+        this.secretNumber = getRandomNumber(this.min, this.max);
+    }
+
     /**
      * Method checks if the number is correct or not.
      *
@@ -57,6 +70,8 @@ public class GuessNumberGameModel {
     }
 
     /**
+     * Returns random integer
+     *
      * @return integer value from 0 to
      * {@link GuessNumberGameModel#RAND_MAX} inclusive
      */
@@ -66,13 +81,15 @@ public class GuessNumberGameModel {
     }
 
     /**
+     * Returns random integer
+     *
      * @param min lower range boundary
      * @param max bigger range boundary
-     * @return integer FROM min to max inclusive
+     * @return integer FROM min to max exclusive
      */
     public int getRandomNumber(int min, int max) {
         Random randomGenerator = new Random();
-        return randomGenerator.nextInt((max - min) + 1) + min;
+        return randomGenerator.nextInt((max - min) - 1) + min + 1;
     }
 
     public boolean isNumberEqualsSecret(int checkedNumber) {

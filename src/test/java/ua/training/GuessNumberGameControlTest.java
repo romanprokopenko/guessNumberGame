@@ -56,7 +56,7 @@ public class GuessNumberGameControlTest {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
         Scanner scan = new Scanner(inputStream);
         Integer result = control.inputIntValueWithScanner(scan);
-        Assert.assertEquals(expected,result);
+        Assert.assertEquals(expected, result);
     }
 
 }
