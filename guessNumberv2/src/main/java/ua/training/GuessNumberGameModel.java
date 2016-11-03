@@ -102,6 +102,12 @@ public class GuessNumberGameModel {
         return (getMin() < number) && (number < getMax());
     }
 
+    /**
+     * Checks if checkedNumber equals secretNumber
+     *
+     * @param checkedNumber number to check
+     * @return result of checking
+     */
     public boolean isNumberEqualsSecret(int checkedNumber) {
         return checkedNumber == getSecretNumber();
     }
