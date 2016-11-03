@@ -46,7 +46,9 @@ public class GuessNumberGameControl {
         do {
             estimateNumber = inputIntValueWithScanner(scan);
             if (isInRange(estimateNumber)) {
-                model.addStatisticsData(estimateNumber);                                        //after all validations we could add input to statistics
+
+                /*after all validations we could add input to statistics*/
+                model.addStatisticsData(estimateNumber);
                 int result = model.guessNumber(estimateNumber);
                 if (result > 0) {
                     view.printMessage(GuessNumberGameView.CANDIDATE_IS_SMALLER_MESSAGE);
