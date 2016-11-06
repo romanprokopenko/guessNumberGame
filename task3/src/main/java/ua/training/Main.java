@@ -1,19 +1,19 @@
 package ua.training;
 
 /**
- * Class represents main game-class where the game runs
+ * Class represents main class where the program starts
  *
  * @author Roman Prokopenko
  */
-public class GuessNumberGame {
+public class Main {
     public static void main(String[] args) {
 
         //initialization of components
-        GuessNumberGameView view = new GuessNumberGameView();
-        GuessNumberGameModel model = new GuessNumberGameModel();
-        GuessNumberGameControl control = new GuessNumberGameControl(model, view);
+        View view = new View();
+        Model model = new Model();
+        Control control = new Control(model, view);
 
         //run
-        control.startGame();
+        control.processUser();
     }
 }

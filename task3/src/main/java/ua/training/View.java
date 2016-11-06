@@ -1,37 +1,60 @@
 package ua.training;
 
-import java.util.ArrayList;
-
 /**
  * Class which used to interact with player
  *
  * @author Roman Prokopenko
  */
-public class GuessNumberGameView {
+public class View {
 
-    public static final String START_GAME_MESSAGE = "GREETINGS!";
-    public static final String INPUT_NUMBER_MESSAGE = "Enter the number";
-    public static final String WRONG_INPUT_MESSAGE = "INVALID NUMBER.";
-    public static final String CANDIDATE_IS_SMALLER_MESSAGE = "your number is" +
-            " smaller than secret number";
-    public static final String CANDIDATE_IS_BIGGER_MESSAGE = "your number is" +
-            " bigger than secret number";
-    public static final String INPUT_IS_OUT_OF_RANGE_MESSAGE = "input is out" +
-            " of range";
-    public static final String VICTORY_MESSAGE = "CONGRATULATIONS! YOU" +
-            " GUESSED RIGHT";
-    public static final String ATTEMPTS_MESSAGE = "attempts used: ";
-    public static final String RANGE_MESSAGE_FIRST_PART = "Secret number" +
-            " is in range [ ";
-    public static final String RANGE_MESSAGE_SECOND_PART = " , ";
-    public static final String RANGE_MESSAGE_THIRD_PART = " ]";
-    public static final String STATISTICS_MESSAGE = "moves made:";
-    public static final String ENTER_LESSER_BOUNDARY_MESSAGE = "please," +
-            " enter lesser boundary: ";
-    public static final String ENTER_BIGGER_BOUNDARY_MESSAGE = "please," +
-            " enter bigger boundary: ";
-    public static final String BOUNDARIES_ERROR_MESSAGE = "difference" +
-            " between bigger and lesser boundaries must be greater than 1";
+    public static final String NAME_INPUT_MESSAGE = "Enter name.";
+    public static final String SURNAME_INPUT_MESSAGE = "Enter surname.";
+    public static final String PATRONYMIC_INPUT_MESSAGE = "Enter patronymic.";
+    public static final String NAME_RULE_MESSAGE = "Must contain only letters," +
+            " first letter must be capitalized";
+    public static final String NICKNAME_INPUT_MESSAGE = "Enter nickname.";
+    public static final String NICKNAME_RULE_MESSAGE = "Must contain from" +
+            " 6 to 15 alphanumeric characters, first character is a letter";
+    public static final String COMMENT_INPUT_MESSAGE = "Enter comment.";
+    public static final String COMMENT_RULE_MESSAGE = "May contain any character";
+    public static final String GROUP_INPUT_MESSAGE = "Enter record group.";
+    public static final String GROUP_RULE_MESSAGE = "Input must contain" +
+            " FAMILY|WORK|STUDY";
+    public static final String HOME_PHONE_INPUT_MESSAGE = "Enter your home number.";
+    public static final String PHONE_RULE_MESSAGE = "Must be formatted" +
+            " as ###-###-##-##";
+    public static final String MOBILE_PHONE_INPUT_MESSAGE = "Enter your" +
+            " mobile number.";
+    public static final String OFFER_SECOND_MOBILE_PHONE_MESSAGE = "Do" +
+            " you want to add second mobile phone?";
+    public static final String OFFER_RULE_MESSAGE = "Enter Y/N";
+    public static final String EMAIL_INPUT_MESSAGE = "Enter email.";
+    public static final String EMAIL_RULE_MESSAGE = "Must contain only" +
+            " alphanumerical characters,.,- and one @";
+    public static final String SKYPE_INPUT_MESSAGE = "Enter skype.";
+    public static final String SKYPE_RULE_MESSAGE = "Must contain from 6 to" +
+            " 32 alphanumerical characters,.,-,. and begin with letter";
+    public static final String POSTCODE_INPUT_MESSAGE = "Enter postcode.";
+    public static final String POSTCODE_RULE_MESSAGE = "Must contain 5 numbers";
+    public static final String CITY_INPUT_MESSAGE = "Enter city name.";
+    public static final String CITY_RULE_MESSAGE = "Must start with capital" +
+            " letter, may contain blank space or -";
+    public static final String STREET_INPUT_MESSAGE = "Enter street name.";
+    public static final String STREET_RULE_MESSAGE = "Must start with capital" +
+            " letter, may contain blank space or -." +
+            "Must end with street|boulevard|avenue";
+    public static final String HOUSE_NUMBER_INPUT_MESSAGE = "Enter house number.";
+    public static final String HOUSE_NUMBER_RULE_MESSAGE = "Must be a number" +
+            " from 1 to 999 and may contain /";
+    public static final String APARTMENT_NUMBER_INPUT_MESSAGE = "Enter apartment" +
+            " number.";
+    public static final String APARTMENT_NUMBER_RULE_MESSAGE = "Must be a number" +
+            " from 1 to 999";
+    public static final String ADD_DATE_INPUT_MESSAGE = "Enter record add date.";
+    public static final String UPDATE_DATE_INPUT_MESSAGE = "Enter record update date.";
+    public static final String DATE_RULE_MESSAGE = "Date must be formatted" +
+            " as dd/mm/yyyy";
+    public static final String ERROR = "error";
 
 
     /**
@@ -43,30 +66,5 @@ public class GuessNumberGameView {
         System.out.println(message);
     }
 
-    /**
-     * Prints combined message to System.out
-     *
-     * @param message      any string
-     * @param lesserBorder  lesser range boundary
-     * @param biggerBorder bigger range boundary
-     */
-    public void printMessageAndRange(String message, int lesserBorder, int biggerBorder) {
-        System.out.println(message + RANGE_MESSAGE_FIRST_PART + lesserBorder
-                + RANGE_MESSAGE_SECOND_PART + biggerBorder
-                + RANGE_MESSAGE_THIRD_PART);
-    }
 
-    /**
-     * Prints message plus number of tries and then outputs all valid tries
-     *
-     * @param message    any string
-     * @param statistics ArrayList of tries
-     */
-    public void printMessageAndStatistics(String message, ArrayList statistics) {
-        System.out.println(message + statistics.size());
-        System.out.println(STATISTICS_MESSAGE);
-        for (int i = 0; i < statistics.size(); i++) {
-            System.out.println(statistics.get(i).toString());
-        }
-    }
 }
