@@ -17,46 +17,31 @@ import java.util.Scanner;
 
 
 /**
- * Created by Roman Prokopenko on 30.10.2016.
+ * Created by Roman Prokopenko on 06.11.2016.
  */
-public class GuessNumberGameControlTest {
+public class ControlTest {
 
-    private GuessNumberGameControl control;
-    private GuessNumberGameModel model;
-    private GuessNumberGameView view;
+    private Control control;
+    private Model model;
+    private View view;
 
     @Rule
     public final ExpectedException exp = ExpectedException.none();
 
     @Before
     public void initialize() {
-        this.model = new GuessNumberGameModel();
-        this.view = new GuessNumberGameView();
-        this.control = new GuessNumberGameControl(model, view);
+        this.model = new Model();
+        this.view = new View();
+        this.control = new Control(model, view);
     }
 
     @Test
-    public void startGameTest() {
+    public void processUserTest() {
         exp.expect(NullPointerException.class);
-        this.control = new GuessNumberGameControl(null, null);
-        control.startGame();
+        this.control = new Control(null, null);
+        control.processUser();
     }
 
-    @Test
-    public void inputIntValueWithScannerNullScanner() throws Exception {
-        exp.expect(NullPointerException.class);
-        Scanner scan = null;
-        control.inputIntValueWithScanner(scan);
-    }
 
-    @Test
-    public void inputIntValueWithScanner() {
-        Integer expected = 50;
-        String input = expected.toString();
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes());
-        Scanner scan = new Scanner(inputStream);
-        Integer result = control.inputIntValueWithScanner(scan);
-        Assert.assertEquals(expected, result);
-    }
 
 }
