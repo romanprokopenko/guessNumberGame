@@ -7,8 +7,8 @@ import java.util.*;
  */
 public class ArraysTest {
     public static void main(String[] args) {
-        int arrayFirst[] = { 1, 1, 1, 3, 2, 4, 4, 3 };
-        int secondArray[] = { 2, 5, 15, 12, 19, 17 };
+        int arrayFirst[] = { 1, 3, 2, 4, 4, 3, 3 };
+        int secondArray[] = { 2, 1, 5, 19, 17 , 8, 10, 8};
         System.out.println(findNotEquals(arrayFirst, secondArray));
         System.out.println(sortArrayByNumberOfOccurrences(arrayFirst));
     }
