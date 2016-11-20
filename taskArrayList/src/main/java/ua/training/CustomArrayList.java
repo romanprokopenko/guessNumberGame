@@ -297,8 +297,10 @@ public class CustomArrayList<E> implements List<E>{
 
 
     @Override
-    public Object[] toArray() {
-        throw new UnsupportedOperationException();
+    public E[] toArray() {
+        Object[] resultArray = new Object[size];
+        System.arraycopy(dataArray, 0, resultArray, 0, size);
+        return (E[]) resultArray;
     }
 
     @Override
@@ -375,4 +377,5 @@ public class CustomArrayList<E> implements List<E>{
     public Spliterator<E> spliterator() {
         throw new UnsupportedOperationException();
     }
+
 }
