@@ -76,7 +76,7 @@ public class CustomArrayList<E> implements List<E>{
     /**
      * Checks if index bigger than 0 and lesser than size
      *
-     * @param index
+     * @param index index to check
      */
     private void checkIndexInBounds(int index) {
         ensureNotNegative(index, OUT_OF_BOUNDS);
