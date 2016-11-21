@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -15,7 +16,8 @@ public class CustomArrayListTest {
     private List<Integer> actualList;
     @Before
     public void init() {
-        actualList = new CustomArrayList();
+        LinkedList<Integer> lst;
+        actualList = new CustomArrayList<>();
         actualList.add(1);
         actualList.add(2);
         actualList.add(3);
