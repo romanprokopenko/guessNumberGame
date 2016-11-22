@@ -17,7 +17,7 @@ public class CustomArrayListTest {
     @Before
     public void init() {
         LinkedList<Integer> lst;
-        actualList = new CustomArrayList<>();
+        actualList = new CustomLinkedList<>();
         actualList.add(1);
         actualList.add(2);
         actualList.add(3);
