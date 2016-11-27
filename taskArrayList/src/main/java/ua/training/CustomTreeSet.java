@@ -57,6 +57,129 @@ public class CustomTreeSet<E extends Comparable<E>> {
         }
     }
 
+
+    public boolean contains(E data){
+        Node<E> focusNode = this.root;
+
+        while(data.compareTo(focusNode.data) != 0){
+            if(data.compareTo(focusNode.data) < 0){
+                focusNode = focusNode.leftChild;
+            }
+            else{
+                focusNode = focusNode.rightChild;
+            }
+            if(focusNode == null)
+                return false;
+        }
+        return true;
+
+    }
+
+    public boolean remove(E data){
+        Node<E> focusNode = this.root;
+        Node<E> parentNode = this.root;
+
+        boolean isLeft = true;
+
+        while(data.compareTo(focusNode.data) != 0){
+
+            parentNode = focusNode;
+
+            if(data.compareTo(focusNode.data) < 0){
+                focusNode = parentNode.leftChild;
+                isLeft = true;
+            }
+            else{
+                focusNode = parentNode.rightChild;
+                isLeft = false;
+            }
+            if(focusNode == null){
+                return false;
+            }
+        }
+        //если нет потомков
+        if(focusNode.leftChild == null && focusNode.rightChild == null){
+            if(focusNode == this.root){
+                this.root = null;
+                return true;
+            }
+            if(isLeft){
+                parentNode.leftChild = null;
+                return true;
+            }
+            else{
+                parentNode.rightChild = null;
+                return true;
+            }
+        }
+        //если нет потомков справа
+        else if(focusNode.rightChild == null){
+            if(focusNode == this.root){
+                this.root = null;
+                return true;
+            }
+
+            if(isLeft){
+                parentNode.leftChild = focusNode.leftChild;
+                return true;
+            }
+            else{
+                parentNode.rightChild = focusNode.leftChild;
+                return true;
+            }
+        }
+        //если нет потомков слева
+        else if(focusNode.leftChild == null){
+            if(focusNode == this.root){
+                this.root = null;
+                return true;
+            }
+
+            if(isLeft){
+                parentNode.leftChild = focusNode.rightChild;
+            }
+            else{
+                parentNode.rightChild = focusNode.rightChild;
+            }
+        }
+        //потомки есть
+        else{
+
+            Node<E> replacement = getReplacementNode(focusNode);
+
+            if(focusNode == this.root){
+                this.root = replacement;
+            }
+            else if(isLeft){
+                parentNode.leftChild = replacement;
+            }
+            else{
+                parentNode.rightChild = replacement;
+            }
+
+            replacement.leftChild = focusNode.leftChild;
+
+        }
+        return true;
+    }
+
+    private Node<E> getReplacementNode(Node<E> replacedNode) {
+        Node<E> replacementNode = replacedNode;
+        Node<E> replacementParentNode = replacedNode;
+        Node<E> focusNode = replacedNode.rightChild;
+        //пока не дойдем до самой глубокой левой ноды
+        while(focusNode != null){
+            replacementParentNode = replacementNode;
+            replacementNode = focusNode;
+            focusNode = focusNode.leftChild;
+        }
+        if(replacementNode != replacedNode.rightChild){
+            replacementParentNode.leftChild = replacementNode.rightChild;
+            replacementNode.rightChild = replacedNode.rightChild;
+        }
+        return replacementNode;
+    }
+
     public void testShow() {
         display(root);
     }
