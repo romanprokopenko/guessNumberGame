@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Graffit on 27.11.2016.
+ * Created by Roman on 27.11.2016.
  */
 public class ObserverPattern {
     public static void main(String[] args) {
