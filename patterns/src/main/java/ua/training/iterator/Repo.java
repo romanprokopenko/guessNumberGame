@@ -1,7 +1,7 @@
 package ua.training.iterator;
 
 /**
- * Created by Graffit on 27.11.2016.
+ * Created by Roman on 27.11.2016.
  */
 public class Repo  implements Container {
     public String names[] = {"Robert" , "John" ,"Julie" , "Lora"};
