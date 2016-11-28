@@ -1,7 +1,7 @@
 package ua.training.delegate;
 
 /**
- * Created by Graffit on 27.11.2016.
+ * Created by Roman on 27.11.2016.
  */
 public class Delegate {
     public static void main(String[] args) {
