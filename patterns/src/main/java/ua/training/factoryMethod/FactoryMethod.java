@@ -3,7 +3,7 @@ package ua.training.factoryMethod;
 import java.util.Date;
 
 /**
- * Created by Graffit on 27.11.2016.
+ * Created by Roman on 27.11.2016.
  */
 public class FactoryMethod {
     public static void main(String[] args) {
