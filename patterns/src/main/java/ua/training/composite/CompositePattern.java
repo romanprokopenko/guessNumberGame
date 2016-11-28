@@ -3,7 +3,7 @@ package ua.training.composite;
 import java.util.ArrayList;
 
 /**
- * Created by Graffit on 27.11.2016.
+ * Created by Roman on 27.11.2016.
  */
 public class CompositePattern {
     public static void main(String[] args) {
